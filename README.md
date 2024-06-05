@@ -2,11 +2,15 @@
 
 A web version of [Five Nights At Candy's 2](https://gamejolt.com/games/five-nights-at-candy-s-2-official/110234), created by [Emilmacko](https://gamejolt.com/@Emilmacko), a fan game based on [FNAF](https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy%27s_(Franchise)) series.
 
-No JS libary is used in this project.
+- Assets dumped using [CTFAK](https://github.com/CTFAK/CTFAK2.0)
+- No JS libary is used in this project.
+- Minigames is removed.
 
-Play it ~~[here](https://fnac2.choomai.lol)~~
+Play it ~~[here](https://choomai.github.io/FNAC2-Web/)~~
 
-You can use IIS or nginx, here is a example configuration.
+You can clone this repo and host it using IIS or nginx.
+
+Here is a example configuration.
 
 ### IIS (Windows)
 ```xml
