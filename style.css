@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    background-color: black;
+    overflow: hidden;
+}
+
+div {
+    position: absolute;
+    width: 1024px;
+    height: 768px;
+}
+
+div.black-overlay {display: none;}
+
+div.background > img {
+    height: 100vh;
+}
+
+/* div.hover */
+
+div.left, div.right {
+    position: fixed;
+    width: calc(1024px * 25 / 100);
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+div.right {right: 0;}
