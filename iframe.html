@@ -5,14 +5,14 @@
     <meta name="color-scheme" content="dark">
     <meta name="viewport" content="width=1024, height=768, initial-scale=1, user-scalable=no">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
     <script src="script.js" defer></script>
     <title>FNAC 2 on the Web</title>
 </head>
 <body>
     <div class="container">
         <div class="background">
-            <img draggable="false" src="imgs/background/table.png" class="table">
+            <img draggable="false" id="table" src="imgs/background/table.png">
+            <img draggable="false" id="flash" style="--index:-1" src="imgs/flash_overlay/empty.png">
         </div>
     </div>
     <div class="left"></div>

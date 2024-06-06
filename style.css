@@ -19,16 +19,16 @@ div {
     height: 768px;
 }
 
-div.background {
-    overflow-x: auto;
-    overflow-y: hidden;
+div.background > img {
+    position: fixed;
+    transform: translateX(var(--bg-x-cords, 0px));
+    z-index: var(--index, 0);
+    transition: transform linear 200ms;
 }
-div.background::-webkit-scrollbar {display: none;}
 
 div.left, div.right {
     position: fixed;
     width: calc(1024px * 0.25);
     /* background-color: rgba(255, 255, 255, 0.3); */
 }
-
 div.right {right: 0;}
