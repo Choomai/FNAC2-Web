@@ -15,3 +15,24 @@ main {
     overflow-x: auto;
 }
 main::-webkit-scrollbar {display: none;}
+
+.stack-container {position: relative;}
+.stack-container > img {height: 100%;}
+.stack-container > img.overlay {
+    position: absolute;
+    top: 0; left: 0;
+    z-index: var(--index, 0);
+}
+
+.full-vp {
+    width: 1024px;
+    height: 768px;
+}
+
+.mt--16 {margin-top: -16px;}
+.mt--32 {margin-top: -32px;}
+
+.ml--32 {margin-left: -32px;}
+
+.mr--16 {margin-right: -16px;}
+.mr--32 {margin-right: -32px;}

@@ -11,10 +11,4 @@ vite.config.ts.timestamp-*
 
 .vscode/
 **/*.exe
-
-static/imgs/**/*.png
-!static/imgs/**/@animated.png
-!static/imgs/background/*.png
-!static/imgs/flash_overlay/*.png
-!static/imgs/error_msg/*.png
-!static/imgs/clock/*.png
+dumped/
