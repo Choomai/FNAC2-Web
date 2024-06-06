@@ -1,2 +1,1 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<iframe src="/game/" width="1024" height="768" frameborder="0" title="Game viewport"></iframe>
