@@ -10,6 +10,10 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
 .vscode/
-imgs/
-
 **/*.exe
+
+imgs/**/*.png
+!imgs/**/@animated.png
+!imgs/background/*.png
+!imgs/flash_overlay/*.png
+!imgs/error_msg/*.png
