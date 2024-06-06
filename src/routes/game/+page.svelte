@@ -36,11 +36,14 @@
 </svelte:head>
 
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+<!-- svelte-ignore a11y-missing-attribute -->
 <main class="full-vp">
     <div class="stack-container">
         <img style="opacity: {isFlashed ? 0 : 1}" id="table" src="/imgs/background/table.png" alt>
         <img style="opacity: {isFlashed ? 0.9 : 0}" id="flash" class="overlay" src="/imgs/flash_overlay/old_candy1.png" alt>
     </div>
+    
+    <img id="clock" src="/imgs/clock/0.png">
 </main>
 
 <style>
@@ -52,6 +55,13 @@
     main::-webkit-scrollbar {display: none;}
 
     img {-webkit-user-drag: none;}
+
+    img#clock {
+        position: fixed;
+        top: 0; right: 0;
+        width: 128px;
+        image-rendering: pixelated;
+    }
     
     img#table {
         transition: opacity 150ms ease-in;
