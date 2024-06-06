@@ -1,6 +1,17 @@
 <script>
     import { onMount } from "svelte";
 
+    const config = {
+        nightInterval: 70, // secs
+        animatronics: {
+            old_candy: {},
+            old_cindy: {},
+            chester: {},
+            blank: {},
+            rat: {},
+            cat: {}
+        }
+    }
     const sound = {};
     let isFlashed = false, isSpacePressed = false, onCooldown = false;
 
