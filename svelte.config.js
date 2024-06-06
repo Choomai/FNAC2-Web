@@ -16,7 +16,6 @@ const config = {
 			iisNodeOptions: {
 				loggingEnabled: false
 			},
-			origin: "fnac2.choomai.lol",
 			nodeProcessCommandLine: "C:\\Program Files\\nodejs\\node.exe"
 		})
 	}
