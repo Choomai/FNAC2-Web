@@ -8,3 +8,10 @@ body {
     display: grid;
     place-items: center;
 }
+
+main {
+    overflow: hidden;
+    background-color: black;
+    overflow-x: auto;
+}
+main::-webkit-scrollbar {display: none;}

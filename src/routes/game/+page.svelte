@@ -18,11 +18,9 @@
 
     function handleKeyDown(e) {
         if (e.key === " " && !isFlashed && !isSpacePressed && !onCooldown) {
-            isFlashed = true;
-            isSpacePressed = true;
-            onCooldown = true
+            isFlashed = true; isSpacePressed = true; onCooldown = true;
             sound.flash.play();
-            setTimeout(() => isFlashed = false, 150);
+            setTimeout(() => isFlashed = false, 200);
             setTimeout(() => onCooldown = false, 2000);
         };
     }
@@ -44,6 +42,11 @@
         })
         window.addEventListener("keydown", handleKeyDown);
         window.addEventListener("keyup", handleKeyUp);
+
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+            window.removeEventListener("keyup", handleKeyDown);
+        };
     })
 </script>
 
@@ -56,20 +59,15 @@
 <main class="full-vp">
     <div class="stack-container">
         <img style="opacity: {isFlashed ? 0 : 1}" id="table" src="imgs/background/table.png" alt>
-        <img style="opacity: {isFlashed ? 0.9 : 0}" id="flash" class="overlay" src="imgs/flash_overlay/old_candy1.png" alt>
+        <img style="opacity: {isFlashed ? 1 : 0}" id="flash" class="overlay" src="imgs/flash_overlay/old_candy1.png" alt>
     </div>
     
     <img id="clock" src={clockUrl}>
+
+    <audio src="/audio/ambiance 2.ogg" autoplay loop hidden></audio>
 </main>
 
 <style>
-    main {
-        overflow: hidden;
-        background-color: black;
-        overflow-x: auto;
-    }
-    main::-webkit-scrollbar {display: none;}
-
     img {-webkit-user-drag: none;}
 
     img#clock {
@@ -80,10 +78,10 @@
     }
     
     img#table {
-        transition: opacity 150ms ease-in;
+        transition: opacity 200ms ease-in;
     }
     img#flash {
-        transition: opacity 150ms linear;
+        transition: opacity 200ms linear;
     }
 
     .stack-container {position: relative;}
