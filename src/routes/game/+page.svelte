@@ -29,27 +29,28 @@
         if (e.key === " ") isSpacePressed = false;
     }
 
+    function handleUnload(e) {
+        e.preventDefault();
+            e.returnValue = "";
+    }
+
     onMount(() => {
+        document.querySelector("main.full-vp").scrollTo({ left: 256, behavior: "smooth" });
+
         sound.flash = new Audio("/audio/camerashutter (2).ogg");
 
         for (let state = 0; state <= 5; state++) {
             setTimeout(() => clockUrl = `imgs/clock/${state}.png`, state * config.nightInterval);
         }
 
-        document.querySelector("main.full-vp").scroll({
-            left: 256,
-            behavior: "smooth"
-        })
         window.addEventListener("keydown", handleKeyDown);
         window.addEventListener("keyup", handleKeyUp);
-        window.addEventListener('beforeunload', e => {
-            e.preventDefault();
-            e.returnValue = "";
-        });
+        window.addEventListener("beforeunload", handleUnload);
 
         return () => {
             window.removeEventListener("keydown", handleKeyDown);
-            window.removeEventListener("keyup", handleKeyDown);
+            window.removeEventListener("keyup", handleKeyUp);
+            window.removeEventListener("beforeunload", handleUnload);
         };
     })
 </script>
@@ -67,6 +68,8 @@
 <audio src="audio/ambiance 2.ogg" autoplay loop></audio>
 
 <style>
+    div.stack-container {width: 1440px;} /* Pre-defined the width, make sure it is scrolled */
+
     img {-webkit-user-drag: none;}
 
     img#clock {
