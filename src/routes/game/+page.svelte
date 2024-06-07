@@ -42,6 +42,10 @@
         })
         window.addEventListener("keydown", handleKeyDown);
         window.addEventListener("keyup", handleKeyUp);
+        window.addEventListener('beforeunload', e => {
+            e.preventDefault();
+            e.returnValue = "";
+        });
 
         return () => {
             window.removeEventListener("keydown", handleKeyDown);
