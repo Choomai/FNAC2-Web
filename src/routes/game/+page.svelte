@@ -1,5 +1,6 @@
 <script>
     import { onMount } from "svelte";
+    import random from "random";
 
     const config = {
         nightInterval: 70 * 1000, // milsecs

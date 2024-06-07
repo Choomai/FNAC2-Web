@@ -2,9 +2,7 @@
     import { version } from "/package.json";
 </script>
 
-<svelte:head>
-    <title>FNAC 2 on the web</title>
-</svelte:head>
+<svelte:head><title>FNAC 2 on the web</title></svelte:head>
 
 <p>
     <span>Try to zoom out if there is overflow</span>

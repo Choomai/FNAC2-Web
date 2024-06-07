@@ -16,5 +16,8 @@
 		"sveltekit-adapter-iis": "^1.2.5",
 		"vite": "^5.0.3"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"random": "^4.1.0"
+	}
 }
