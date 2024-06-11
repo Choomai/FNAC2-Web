@@ -13,44 +13,69 @@
             cat: {}
         }
     }
-    const sound = {};
-    let isFlashed = false, isSpacePressed = false, onCooldown = false;
+    const sound = {}, gameData = { flashCounter: 0 };
+
+    let isFlashed = false, onCooldown = false;
     let clockUrl = "imgs/clock/0.png";
 
-    function handleKeyDown(e) {
-        if (e.key === " " && !isFlashed && !isSpacePressed && !onCooldown) {
-            isFlashed = true; isSpacePressed = true; onCooldown = true;
-            sound.flash.play();
-            setTimeout(() => isFlashed = false, 200);
-            setTimeout(() => onCooldown = false, 2000);
-        };
+    function handleJumpscare(char) {
+        const jumpscareElem = document.createElement("img");
+        jumpscareElem.id = "jumpscare";
+        jumpscareElem.src = `imgs/jumpscare/old_candy/@front.png?randomShit=${random.float(0, 1000)}`;
+
+        const panelDownOverlayElem = document.createElement("img");
+        panelDownOverlayElem.classList.add("overlay");
+        panelDownOverlayElem.src = `imgs/@panel_down_overlay.png?randomShit=${random.float(0, 1000)}`;
+
+        const stackContainer = document.querySelector("div.stack-container");
+        stackContainer.textContent = "";
+        stackContainer.classList.remove("w-extend");
+        stackContainer.appendChild(panelDownOverlayElem);
+        setTimeout(() => stackContainer.appendChild(jumpscareElem), 333);
+        sound.jumpscare_0.play();
+        // TODO: call to gameover function...
+        // setTimeout(() => {
+        //     // jumpscareElem.remove();
+        // }, 2000)
     }
 
-    function handleKeyUp(e) {
-        if (e.key === " ") isSpacePressed = false;
+    function handleKeyPress(e) {
+        switch (e.key) {
+            case " ":
+                if (onCooldown) break;
+                isFlashed = true; onCooldown = true;
+                gameData.flashCounter += 1;
+                sound.flash.play();
+                setTimeout(() => isFlashed = false, 200);
+                setTimeout(() => onCooldown = false, 2000);
+                break;
+        
+            case "j":
+                handleJumpscare();
+                break;
+        };
     }
 
     function handleUnload(e) {
         e.preventDefault();
-            e.returnValue = "";
+        e.returnValue = "";
     }
 
     onMount(() => {
-        document.querySelector("main.full-vp").scrollTo({ left: 256, behavior: "smooth" });
-
         sound.flash = new Audio("/audio/camerashutter (2).ogg");
+        sound.jumpscare_0 = new Audio("/audio/jumpscare.ogg");
+        sound.jumpscare_1 = new Audio("/audio/jumpscare 2.ogg");
+
+        document.querySelector("main.full-vp").scrollTo({ left: 256, behavior: "smooth" });
 
         for (let state = 0; state <= 5; state++) {
             setTimeout(() => clockUrl = `imgs/clock/${state}.png`, state * config.nightInterval);
         }
 
-        window.addEventListener("keydown", handleKeyDown);
-        window.addEventListener("keyup", handleKeyUp);
+        window.addEventListener("keypress", handleKeyPress);
         window.addEventListener("beforeunload", handleUnload);
-
         return () => {
-            window.removeEventListener("keydown", handleKeyDown);
-            window.removeEventListener("keyup", handleKeyUp);
+            window.removeEventListener("keypress", handleKeyPress);
             window.removeEventListener("beforeunload", handleUnload);
         };
     })
@@ -58,7 +83,7 @@
 
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <!-- svelte-ignore a11y-missing-attribute -->
-<main class="full-vp">
+<main class="full-vp w-extend">
     <div class="stack-container">
         <img style="opacity: {isFlashed ? 0 : 1}" id="table" src="imgs/background/table.png" alt>
         <img style="opacity: {isFlashed ? 1 : 0}" id="flash" class="overlay" src="imgs/flash_overlay/old_candy2.png" alt>
@@ -69,8 +94,6 @@
 <audio src="audio/ambiance 2.ogg" autoplay loop></audio>
 
 <style>
-    div.stack-container {width: 1440px;} /* Pre-defined the width, make sure it is scrolled */
-
     img {-webkit-user-drag: none;}
 
     img#clock {
