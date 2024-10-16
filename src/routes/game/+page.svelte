@@ -62,6 +62,8 @@
     }
 
     onMount(() => {
+        sound.background = new Audio("/audio/ambiance 2.ogg");
+        sound.background.play()
         sound.flash = new Audio("/audio/camerashutter (2).ogg");
         sound.jumpscare_0 = new Audio("/audio/jumpscare.ogg");
         sound.jumpscare_1 = new Audio("/audio/jumpscare 2.ogg");
