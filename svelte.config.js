@@ -1,17 +1,9 @@
-// import adapter from "@sveltejs/adapter-auto";
-import IISAdapter from "sveltekit-adapter-iis";
+import adapter from "@sveltejs/adapter-node";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		// adapter: adapter()
-
-		adapter: IISAdapter({
-			iisNodeOptions: {
-				loggingEnabled: false
-			},
-			nodeProcessCommandLine: "C:\\Program Files\\nodejs\\node.exe"
-		})
+		adapter: adapter()
 	}
 };
 
