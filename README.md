@@ -9,33 +9,13 @@ A web version of [Five Nights At Candy's 2](https://gamejolt.com/games/five-nigh
 - Created with Svelte(Kit).
 - Minigames is removed.
 
-Play it [here](https://fnac2.choomai.lol). This website is hosted on my PC, so don't expect it to be online all the time (`429 Too Many Request` will be return when my PC isn't online).
-
-I will deploy on Github Pages when it is done.
+Play it [here](https://fnac2.choomai.net).
 
 ---
 
 You can clone this repo and run it locally.
 
-Switch adapter in `svelte.config.js` first:
-
-```javascript
-import adapter from "@sveltejs/adapter-auto";
-// import IISAdapter from "sveltekit-adapter-iis";
-```
-
-```javascript
-// ...
-const config = {
-    kit: {
-        adapter: adapter()
-        // adapter: IISAdapter()
-    }
-}
-// ...
-```
-
-After that, run this:
+Run this:
 
 ```bash
 # Install dependencies first
@@ -45,7 +25,6 @@ npm run dev -- --open
 
 # Run this if you have lag issue.
 # I don't really know what's the difference...
-# Comment out 
 npm run build
 npm run preview -- --open
 ```
