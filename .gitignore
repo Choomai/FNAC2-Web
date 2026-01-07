@@ -12,3 +12,5 @@ vite.config.ts.timestamp-*
 .vscode/
 **/*.exe
 dumped/
+
+pm2.config.json
