@@ -3,9 +3,33 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: 'main'
+    paths: 'package.json'
 
 jobs:
+  check_version:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.check.outputs.changed }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check if version changed
+        id: check
+        run: |
+          CURRENT_VERSION=$(jq -r '.version' package.json)
+          PREVIOUS_VERSION=$(git show HEAD~1:package.json | jq -r '.version' 2>/dev/null || echo "")
+          if [ "$CURRENT_VERSION" != "$PREVIOUS_VERSION" ]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
   build_site:
+    needs: check_version
+    if: needs.check_version.outputs.changed == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
