@@ -2,6 +2,8 @@
 
 ### 🚧 Work in progress...
 
+I can't find any AI game breakdown, so development is still limited. If you have any infomation, please comment at issue #2.
+
 A web version of [Five Nights At Candy's 2](https://gamejolt.com/games/five-nights-at-candy-s-2-official/110234), created by [Emilmacko](https://gamejolt.com/@Emilmacko), a fan game based on [FNAF](https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy%27s_(Franchise)) series.
 
 - Assets dumped using [CTFAK](https://github.com/CTFAK/CTFAK2.0)
