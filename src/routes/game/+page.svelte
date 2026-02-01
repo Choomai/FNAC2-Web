@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import random from "random";
+    import { goto } from "$app/navigation";
 
     const config = {
         nightInterval: 70 * 1000, // milsecs
@@ -22,7 +23,7 @@
         const jumpscareElem = document.createElement("img");
         jumpscareElem.id = "jumpscare";
         jumpscareElem.src = `imgs/jumpscare/old_candy/@front.png?randomShit=${random.float(0, 1000)}`;
-
+        // add a random query as a temp fix for APNG files to replay itself.
         const panelDownOverlayElem = document.createElement("img");
         panelDownOverlayElem.classList.add("overlay");
         panelDownOverlayElem.src = `imgs/@panel_down_overlay.png?randomShit=${random.float(0, 1000)}`;
@@ -33,10 +34,7 @@
         stackContainer.appendChild(panelDownOverlayElem);
         setTimeout(() => stackContainer.appendChild(jumpscareElem), 333);
         sound.jumpscare_0.play();
-        // TODO: call to gameover function...
-        // setTimeout(() => {
-        //     // jumpscareElem.remove();
-        // }, 2000)
+        setTimeout(handleGameover, 3000);
     }
 
     function handleKeyPress(e) {
@@ -54,6 +52,12 @@
                 handleJumpscare();
                 break;
         };
+    }
+
+    function handleGameover(e) {
+        window.removeEventListener("keypress", handleKeyPress);
+        window.removeEventListener("beforeunload", handleUnload);
+        goto("/menu", { replaceState: true });
     }
 
     function handleUnload(e) {
