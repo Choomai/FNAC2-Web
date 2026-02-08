@@ -1,6 +1,6 @@
 {
 	"name": "fnac2-web",
-	"version": "0.0.7",
+	"version": "0.0.7-static",
 	"private": false,
 	"scripts": {
 		"dev": "vite dev",
