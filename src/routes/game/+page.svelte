@@ -100,8 +100,6 @@
 <audio src="audio/ambiance 2.ogg" autoplay loop></audio>
 
 <style>
-    img {-webkit-user-drag: none;}
-
     img#clock {
         position: fixed;
         top: 0; right: 0;

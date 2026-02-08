@@ -41,6 +41,7 @@
 <style>
     main {
         position: relative;
+        user-select: none;
     }
 
     @keyframes faded {
