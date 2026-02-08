@@ -9,11 +9,11 @@
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-node": "^5.4.0",
-		"@sveltejs/kit": "^2.0.0",
-		"@sveltejs/vite-plugin-svelte": "^3.0.0",
-		"svelte": "^4.2.7",
+		"@sveltejs/kit": "^2.50.2",
+		"@sveltejs/vite-plugin-svelte": "^4.0.0",
+		"svelte": "^5.50.0",
 		"sveltekit-adapter-iis": "^1.2.5",
-		"vite": "^5.0.3"
+		"vite": "^7.3.1"
 	},
 	"type": "module",
 	"dependencies": {
