@@ -1,4 +1,5 @@
 <!-- svelte-ignore a11y-missing-attribute -->
+<!-- svelte-ignore a11y_consider_explicit_label -->
 <main class="full-vp">
     <div class="row-image">
         <img id="title" src="imgs/menu/@title.png">

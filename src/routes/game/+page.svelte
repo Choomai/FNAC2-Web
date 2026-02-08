@@ -16,8 +16,8 @@
     }
     const sound = {}, gameData = { flashCounter: 0 };
 
-    let isFlashed = false, onCooldown = false;
-    let clockUrl = "imgs/clock/0.png";
+    let isFlashed = $state(false), onCooldown = false;
+    let clockUrl = $state("imgs/clock/0.png");
 
     function handleJumpscare(char) {
         const jumpscareElem = document.createElement("img");
@@ -87,8 +87,8 @@
     })
 </script>
 
-<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-<!-- svelte-ignore a11y-missing-attribute -->
+<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+<!-- svelte-ignore a11y_missing_attribute -->
 <main class="full-vp w-extend">
     <div class="stack-container">
         <img style="opacity: {isFlashed ? 0 : 1}" id="table" src="imgs/background/table.png" alt>
