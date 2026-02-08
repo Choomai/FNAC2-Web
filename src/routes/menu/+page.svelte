@@ -1,3 +1,15 @@
+<script>
+    import { onMount } from "svelte";
+    import { goto } from "$app/navigation";
+
+    onMount(() => {
+        if (localStorage.getItem("warned")) return;
+
+        localStorage.setItem("warned", "true");
+        goto("/warn");
+    })
+</script>
+
 <!-- svelte-ignore a11y-missing-attribute -->
 <!-- svelte-ignore a11y_consider_explicit_label -->
 <main class="full-vp">

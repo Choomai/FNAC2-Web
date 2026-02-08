@@ -3,7 +3,7 @@
 
     function dismiss(e) {
         e.target.style.opacity = 0;
-        setTimeout(() => goto("menu/"), 1000);
+        setTimeout(() => goto("/menu"), 1000);
     }
 </script>
 
