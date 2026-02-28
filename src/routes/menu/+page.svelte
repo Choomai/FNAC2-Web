@@ -3,9 +3,9 @@
     import { goto } from "$app/navigation";
 
     onMount(() => {
-        if (localStorage.getItem("warned")) return;
+        if (sessionStorage.getItem("warned")) return;
 
-        localStorage.setItem("warned", "true");
+        sessionStorage.setItem("warned", "true");
         goto("/warn");
     })
 </script>
